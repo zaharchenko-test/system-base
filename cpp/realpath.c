@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int help(void)
 {
@@ -13,10 +14,9 @@ int main(int argc, char **argv)
   {
     return help();
   }
-
+  char buf[PATH_MAX];
   for (int i = 1; i < argc; i++)
   {
-    char buf[1024];
     char *resolved_path = realpath(argv[i], buf);
     if (resolved_path != NULL)
     {

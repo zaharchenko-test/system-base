@@ -12,7 +12,7 @@ int help(void)
 int main(int argc, char **argv)
 {
   struct utsname buffer;
-  int opt, key_s = 0, key_m = 0, key_v = 0, key_n = 0, key_r = 0, key_e = 0;
+  int opt, key_s, key_n, key_r, key_v, key_m, key_e;
   if (uname(&buffer) < 0)
   {
     printf("error\n");
@@ -40,9 +40,8 @@ int main(int argc, char **argv)
       case 'a':
         key_s = key_n = key_r = key_v = key_m = 1;
         break;
-      case '?':
+      default:
         key_e = 1;
-        break;
     }
   }
 
